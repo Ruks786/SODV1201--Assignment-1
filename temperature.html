@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+             <!-- Header with Navigation -->
+    <header>
+        <h1>Temperature Converter</h1>
+        <nav>
+            <ul>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="gradeconverter.html">Grade Converter</a></li>
+                <li><a href="staff.html">Staff Page</a></li>
+                <li><a href="temperature.html">Temperature Converter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="converter">
+    <label for="inputTemp">Enter Temperature:</label>
+  <input type="number" id="inputTemp" placeholder="Enter value"><br><br>
+
+  <label for="scale">Select Unit:</label>
+  <select id="scale">
+    <option value="C">Celsius</option>
+    <option value="F">Fahrenheit</option>
+    <option value="K">Kelvin</option>
+  </select>
+
+  <div class="result" id="output1"></div>
+  <div class="result" id="output2"></div>
+  </div>
+  
+
+             <!-- Footer -->
+    <footer>
+        <p>&copy; Rukaiya Pardawala. All rights reserved. | <span id="current-date"></span></p>
+    </footer>
+
+    <script>
+        const inputTemp = document.getElementById('inputTemp');
+        const scale = document.getElementById('scale');
+        const output1 = document.getElementById('output1');
+        const output2 = document.getElementById('output2');
+
+        function convertTemp() {
+           const value = parseFloat(inputTemp.value);
+           const unit = scale.value;
+
+           if (isNaN(value)) {
+            output1.textContent = '';
+            output2.textContent = '';
+            return;
+           }
+
+           let c, f, k;
+           if (unit === 'C') {
+            c = value;
+            f = (c * 9 / 5) + 32;
+            k = c + 273.15;
+            output1.textContent = `Fahrenheit: ${f.toFixed(2)} °F`;
+            output2.textContent = `Kelvin: ${k.toFixed(2)} K`;
+            } else if (unit === 'F') {
+            f = value;
+            c = (f - 32) * 5 / 9;
+            k = c + 273.15;
+            output1.textContent = `Celsius: ${c.toFixed(2)} °C`;
+            output2.textContent = `Kelvin: ${k.toFixed(2)} K`;
+            } else if (unit === 'K') {
+            k = value;
+            c = k - 273.15;
+            f = (c * 9 / 5) + 32;
+            output1.textContent = `Celsius: ${c.toFixed(2)} °C`;
+            output2.textContent = `Fahrenheit: ${f.toFixed(2)} °F`;
+            }
+        }
+
+        inputTemp.addEventListener('input', convertTemp);
+        scale.addEventListener('change', convertTemp);
+    </script> 
+
+</body>
+</html>

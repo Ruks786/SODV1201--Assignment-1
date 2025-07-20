@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark to Grade Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Mark to Grade Converter</h1>
+        <nav>
+            <ul>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="gradeconverter.html">Grade Converter</a></li>
+                <li><a href="staff.html">Staff Page</a></li>
+                <li><a href="temperature.html">Temperature Converter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+    <h2>Mark to Grade Converter</h2>
+    <label for="mark-input">Enter your mark (0 - 100):</label>
+    <input type="text" id="mark-input" placeholder="e.g. 95" />
+    <button onclick="MarkToGrade()">Convert</button>
+    <div id="validation-message" class="message"></div>
+    <div id="grade-output" class="message success"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Rukaiya Pardawala. All rights reserved. | <span id="current-date"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
